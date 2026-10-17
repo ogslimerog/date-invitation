@@ -134,5 +134,26 @@ sendBtn.addEventListener("click", () => {
     telegramHint.textContent = "Откроется выбор чата в Telegram с подготовленным текстом. Выбери свой чат и нажми «Отправить».";
   }
 });
+const petalField = document.getElementById("lilacPetals");
+
+if (petalField) {
+  for (let i = 0; i < 24; i++) {
+    const petal = document.createElement("span");
+    petal.className = "lilac-petal";
+
+    petal.style.left = Math.random() * 100 + "%";
+    petal.style.animationDuration =
+      (7 + Math.random() * 9) + "s";
+    petal.style.animationDelay =
+      (-Math.random() * 16) + "s";
+
+    const size = 8 + Math.random() * 10;
+    petal.style.width = size + "px";
+    petal.style.height = size * 1.4 + "px";
+
+    petalField.appendChild(petal);
+  }
+}
+
 editBtn.addEventListener("click", () => showScreen(planner));
 hearts(12);
