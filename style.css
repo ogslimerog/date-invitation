@@ -74,3 +74,49 @@ footer span { color: var(--pink); }
   .answer-buttons .btn { width: 100%; }
 }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; } }
+.lilac-petals {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.lilac-petal {
+  position: absolute;
+  top: -35px;
+  width: 13px;
+  height: 19px;
+  border-radius: 80% 15% 75% 20%;
+  background: linear-gradient(
+    135deg,
+    #ead8ff,
+    #b68be5 65%,
+    #9160c6
+  );
+  opacity: 0;
+  animation: lilac-fall linear infinite;
+  will-change: transform;
+}
+
+@keyframes lilac-fall {
+  0% {
+    transform: translate3d(0, -30px, 0) rotate(0deg);
+    opacity: 0;
+  }
+  10% { opacity: .8; }
+  50% {
+    transform: translate3d(45px, 50vh, 0)
+      rotate(240deg);
+  }
+  90% { opacity: .65; }
+  100% {
+    transform: translate3d(-35px, 110vh, 0)
+      rotate(540deg);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lilac-petal { animation: none; display: none; }
+}
